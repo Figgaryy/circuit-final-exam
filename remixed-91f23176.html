@@ -3594,18 +3594,131 @@ Z_L = R_L only                → R_L = |Z_Th|</div>
 </div></div>
 </div>
 <div>
-<div class="card"><div class="card-header" onclick="toggleCard(this)"><span>🔺</span> Chapter 12 – Three-Phase <span style="margin-left:auto">▾</span></div>
+<div class="card"><div class="card-header" onclick="toggleCard(this)"><span>🔺</span> Chapter 12 – Three-Phase (สูตรครบ) <span style="margin-left:auto">▾</span></div>
 <div class="card-body">
-<div class="formula"><span class="hi">abc(+):</span> V_an=Vp∠0°, V_bn=Vp∠-120°, V_cn=Vp∠+120°
-<span class="hi">acb(-):</span> V_an=Vp∠0°, V_bn=Vp∠+120°, V_cn=Vp∠-120°
-<span class="hi">V_L</span> = √3 · V_p  (line leads phase by 30°)
-<span class="hi">I_L</span> = √3 · I_p  (delta load only)
-<span class="hi">Z_Δ</span> = 3 · Z_Y
-<span class="hi">Y-Y :</span> I_a = V_an / Z_Y
-<span class="hi">Y-Δ :</span> Z_Y=Z_Δ/3, แก้แบบ Y-Y
-<span class="hi">Δ-Y :</span> V_Y=V_Δ/√3∠-30°, แก้แบบ Y-Y
-<span class="hi">Δ-Δ :</span> แปลงทั้ง source&load→Y แล้วแก้
-<span class="hi">🇹🇭</span> 50Hz, 220V(phase), 380V(line)</div>
+
+<h4 style="color:var(--blue);margin-top:0">📐 Phase Sequence (ลำดับเฟส)</h4>
+<div class="formula"><span class="hi">abc (+, positive):</span>
+  V_an = V_p∠0°
+  V_bn = V_p∠−120°
+  V_cn = V_p∠+120°
+
+<span class="hi">acb (−, negative):</span>
+  V_an = V_p∠0°
+  V_bn = V_p∠+120°
+  V_cn = V_p∠−120°
+
+ผลรวม: V_an + V_bn + V_cn = 0  (balanced)</div>
+
+<h4 style="color:var(--blue)">⚡ Line ↔ Phase (Y-connected source/load)</h4>
+<div class="formula"><span class="hi">V_L = √3 · V_p</span>   (V_line = √3 × V_phase)
+
+<span class="hi">abc:</span>
+  V_ab = √3·V_p ∠+30°    (line นำหน้า phase 30°)
+  V_bc = √3·V_p ∠−90°
+  V_ca = √3·V_p ∠+150°
+
+<span class="hi">acb:</span>
+  V_ab = √3·V_p ∠−30°    (line ล้าหลัง phase 30°)
+  V_bc = √3·V_p ∠+90°
+  V_ca = √3·V_p ∠−150°</div>
+
+<h4 style="color:var(--blue)">⚡ Line ↔ Phase Current (Δ-connected load)</h4>
+<div class="formula"><span class="hi">I_L = √3 · I_p</span>   (กระแสในสาย = √3 × กระแสใน phase ของ Δ)
+
+<span class="hi">abc:</span> I_a = √3·I_AB ∠−30°  (line ล้าหลัง phase Δ 30°)
+<span class="hi">acb:</span> I_a = √3·I_AB ∠+30°
+
+ใน Y-load: I_line = I_phase (เท่ากัน)</div>
+
+<h4 style="color:var(--blue)">🔁 Y ↔ Δ Transformation</h4>
+<div class="formula"><span class="hi">Z_Δ = 3 · Z_Y</span>     หรือ     <span class="hi">Z_Y = Z_Δ / 3</span>
+มุม ∠Z ไม่เปลี่ยน (เพราะคูณด้วยจำนวนจริง)
+R_Δ = 3R_Y,  X_Δ = 3X_Y</div>
+
+<h4 style="color:var(--blue)">🔵 Y-Y System (พื้นฐาน — ทุก config สรุปเป็น Y-Y)</h4>
+<div class="formula">รวม impedance ในเฟส a เพียงเฟสเดียว:
+<span class="hi">Z_total = Z_source + Z_line + Z_Y,load</span>
+
+<span class="hi">I_a = V_an / Z_total</span>   (กระแสในสาย = phase current)
+
+I_b = I_a ∠−120°    (abc)
+I_c = I_a ∠+120°    (abc)
+   (acb: สลับเครื่องหมาย)
+
+V_load,a = I_a × Z_Y,load    (แรงดันคร่อมโหลด phase a)
+V_AB,load = √3·V_AN ∠±30°    (line voltage ที่โหลด)
+
+I_neutral = I_a + I_b + I_c = 0  (balanced → neutral wire ตัดได้)</div>
+
+<h4 style="color:var(--blue)">🔵→🔺 Y-Δ System (Y source, Δ load)</h4>
+<div class="formula">Step 1: แปลง Δ load → Y equivalent
+  <span class="hi">Z_Y,eq = Z_Δ / 3</span>
+
+Step 2: รวม Z แบบ single-phase
+  Z_total = Z_line + Z_Y,eq
+
+Step 3: <span class="hi">I_a (line) = V_an / Z_total</span>
+
+Step 4: หา phase current ใน Δ จริง
+  V_AN = I_a × Z_Y,eq
+  V_AB = √3·V_AN ∠±30°
+  <span class="hi">I_AB = V_AB / Z_Δ</span>     (phase current ใน Δ)
+  หรือ: I_AB = I_a/√3 ∠+30° (abc)</div>
+
+<h4 style="color:var(--blue)">🔺→🔵 Δ-Y System (Δ source, Y load)</h4>
+<div class="formula">Step 1: แปลง Δ source → Y equivalent
+  <span class="hi">V_an,eq = V_ab/√3 ∠−30°</span>   (abc)
+  <span class="hi">V_an,eq = V_ab/√3 ∠+30°</span>   (acb)
+
+Step 2: แก้แบบ Y-Y
+  Z_total = Z_line + Z_Y,load
+  <span class="hi">I_a = V_an,eq / Z_total</span>
+
+Step 3: คำกลับเป็น Δ source ถ้าจำเป็น
+  V_ab,source = √3·V_an,eq ∠+30° (abc)</div>
+
+<h4 style="color:var(--blue)">🔺→🔺 Δ-Δ System</h4>
+<div class="formula"><span class="hi">วิธีตรง</span> (ไม่มี line impedance):
+  V_AB = V_ab (line voltage = source voltage)
+  <span class="hi">I_AB = V_AB / Z_Δ</span>   (phase current ใน Δ load)
+  I_line = √3·I_AB
+
+<span class="hi">มี line impedance:</span>
+  แปลงทั้ง source และ load เป็น Y → แก้แบบ Y-Y
+  V_an,eq = V_ab/√3 ∠−30°  (abc)
+  Z_Y,eq = Z_Δ/3
+  I_a = V_an,eq / (Z_line + Z_Y,eq)</div>
+
+<h4 style="color:var(--blue)">⭐ Mixed Load (Y ∥ Δ ขนาน — แนวข้อสอบ Final!)</h4>
+<div class="formula">Step 1: แปลง Δ load → Y: Z_Y2 = Z_Δ/3
+Step 2: ขนาน: <span class="hi">Z_load,eq = Z_Y1 ∥ Z_Y2</span>
+                = Z_Y1·Z_Y2 / (Z_Y1 + Z_Y2)
+Step 3: ถ้า source เป็น Δ → แปลงเป็น Y
+Step 4: <span class="hi">I_a = V_an / (Z_line + Z_load,eq)</span>
+Step 5: V_AN = I_a × Z_load,eq
+Step 6: V_AB = √3·V_AN ∠±30°
+Step 7: I_AB = V_AB / Z_Δ_original  (phase current ของ Δ ตัวเดิม)</div>
+
+<h4 style="color:var(--blue)">🎯 Power ใน Balanced 3-Phase</h4>
+<div class="formula">ทั้งระบบ (ใดๆ ก็ตาม):
+  <span class="hi">P_T = 3·V_p·I_p·cosφ = √3·V_L·I_L·cosφ</span>
+  <span class="hi">Q_T = 3·V_p·I_p·sinφ = √3·V_L·I_L·sinφ</span>
+  <span class="hi">|S_T| = 3·V_p·I_p = √3·V_L·I_L</span>
+  S_T = 3·V_p·I*_p = 3·I²_p·Z*_p
+
+ใน Y load: V_p=V_L/√3, I_p=I_L → P_T = 3·I²_p·R = 3·I²_L·R_Y
+ใน Δ load: V_p=V_L,    I_p=I_L/√3 → P_T = 3·I²_p·R_Δ
+
+φ = ∠Z_phase (มุมของ impedance per phase)
+pf = cosφ = R_p / |Z_p|</div>
+
+<h4 style="color:var(--blue)">🇹🇭 ระบบไฟฟ้าไทย</h4>
+<div class="formula">f = 50 Hz, ω = 2π×50 = 314.16 rad/s
+V_phase = 220 V rms (ระหว่างสายกับนิวทรัล)
+V_line = 380 V rms (= 220×√3)
+3-phase 4-wire (มี neutral)</div>
+
 </div></div>
 </div>
 </div>
@@ -3616,6 +3729,40 @@ Z_L = R_L only                → R_L = |Z_Th|</div>
 <tr><td>Total Real Power</td><td><strong>P<sub>T</sub> = 3V<sub>p</sub>I<sub>p</sub>cosφ = √3 V<sub>L</sub>I<sub>L</sub>cosφ</strong></td></tr>
 <tr><td>Total Reactive Power</td><td><strong>Q<sub>T</sub> = 3V<sub>p</sub>I<sub>p</sub>sinφ = √3 V<sub>L</sub>I<sub>L</sub>sinφ</strong></td></tr>
 <tr><td>Total Complex Power</td><td><strong>S<sub>T</sub> = 3V<sub>p</sub>I*<sub>p</sub> = 3I²<sub>p</sub>Z*<sub>p</sub></strong></td></tr></table>
+</div></div>
+
+<!-- ═════ QUICK REFERENCE: 4 CONFIGURATIONS ═════ -->
+<div class="card"><div class="card-header" onclick="toggleCard(this)"><span>📋</span> ตารางสรุป 4 Configurations (อ่านครั้งเดียวจำได้) <span style="margin-left:auto">▾</span></div>
+<div class="card-body">
+<div class="tbl-wrap"><table>
+<tr><th>Config</th><th>V<sub>L</sub> vs V<sub>p</sub></th><th>I<sub>L</sub> vs I<sub>p</sub></th><th>วิธีคำนวณ</th><th>I<sub>a</sub> สูตรหลัก</th></tr>
+<tr><td><strong>Y-Y</strong></td><td>V<sub>L</sub>=√3·V<sub>p</sub></td><td>I<sub>L</sub>=I<sub>p</sub></td><td>Single-phase eq โดยตรง</td><td>I<sub>a</sub> = V<sub>an</sub>/Z<sub>Y</sub></td></tr>
+<tr><td><strong>Y-Δ</strong></td><td>V<sub>L</sub>=√3·V<sub>p</sub></td><td>I<sub>L</sub>=√3·I<sub>Δ</sub></td><td>Δ→Y/3 → ทำ Y-Y</td><td>I<sub>a</sub> = V<sub>an</sub>/(Z<sub>Δ</sub>/3)</td></tr>
+<tr><td><strong>Δ-Y</strong></td><td>V<sub>L</sub>=V<sub>Δ</sub></td><td>I<sub>L</sub>=I<sub>p</sub></td><td>Δ src → Y/√3∠∓30°</td><td>I<sub>a</sub> = V<sub>an,eq</sub>/Z<sub>Y</sub></td></tr>
+<tr><td><strong>Δ-Δ</strong></td><td>V<sub>L</sub>=V<sub>Δ</sub></td><td>I<sub>L</sub>=√3·I<sub>Δ</sub></td><td>แปลงทั้งคู่เป็น Y</td><td>I<sub>AB</sub> = V<sub>AB</sub>/Z<sub>Δ</sub></td></tr>
+</table></div>
+
+<div class="box box-tip" style="margin-top:10px"><div class="box-label">💡 จำง่าย</div>
+<ul>
+<li><strong>"Y มี V หาร √3, Δ มี I หาร √3"</strong> — Y ลด V<sub>phase</sub>, Δ ลด I<sub>phase</sub></li>
+<li>เริ่มทุกข้อด้วย: <strong>"แปลงให้เป็น Y-Y ก่อน"</strong> แล้วใช้ I<sub>a</sub> = V<sub>an</sub>/Z<sub>total</sub></li>
+<li>กลับไปหา phase current ใน Δ load เสมอ ด้วย: I<sub>AB</sub> = V<sub>AB</sub>/Z<sub>Δ</sub> (Z<sub>Δ</sub> ค่าเดิม ก่อนแปลง)</li>
+</ul></div>
+</div></div>
+
+<!-- ═════ SEQUENCE QUICK COMPARE ═════ -->
+<div class="card"><div class="card-header" onclick="toggleCard(this)"><span>🔄</span> abc vs acb — เครื่องหมาย ±30° ที่ผิดบ่อย <span style="margin-left:auto">▾</span></div>
+<div class="card-body">
+<div class="tbl-wrap"><table>
+<tr><th>เรื่อง</th><th>abc (positive)</th><th>acb / cab (negative)</th></tr>
+<tr><td>V<sub>bn</sub> เทียบ V<sub>an</sub></td><td>∠−120°</td><td>∠+120°</td></tr>
+<tr><td>V<sub>cn</sub> เทียบ V<sub>an</sub></td><td>∠+120°</td><td>∠−120°</td></tr>
+<tr><td>V<sub>bc</sub> เทียบ V<sub>ab</sub></td><td>∠−120°</td><td>∠+120°</td></tr>
+<tr><td>V<sub>ab</sub> เทียบ V<sub>an</sub></td><td>√3∠<strong>+30°</strong></td><td>√3∠<strong>−30°</strong></td></tr>
+<tr><td>V<sub>an,eq</sub> ของ Δ source (V<sub>ab</sub> ให้)</td><td>(V<sub>ab</sub>/√3)∠<strong>−30°</strong></td><td>(V<sub>ab</sub>/√3)∠<strong>+30°</strong></td></tr>
+<tr><td>I<sub>line</sub> เทียบ I<sub>phase(Δ)</sub></td><td>I<sub>a</sub>=√3·I<sub>AB</sub>∠<strong>−30°</strong></td><td>I<sub>a</sub>=√3·I<sub>AB</sub>∠<strong>+30°</strong></td></tr>
+</table></div>
+<div class="box box-warn" style="margin-top:10px"><strong>กฎจำสั้นๆ:</strong> abc → "phase นำ line" สำหรับ source แปลง (ดังนั้นเมื่อแปลง Δ→Y ต้องลบ 30°), acb → กลับเครื่องหมาย</div>
 </div></div>
 
 <!-- ═══════════════════════════════════════════════════════════
