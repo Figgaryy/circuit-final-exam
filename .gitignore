@@ -1,0 +1,11 @@
+# Lecture/exam PDFs (potentially copyrighted — keep local)
+lecture/
+hint for exam/
+
+# Claude session
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
