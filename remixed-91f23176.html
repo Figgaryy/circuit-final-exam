@@ -3751,18 +3751,168 @@ V_line = 380 V rms (= 220×√3)
 </div></div>
 
 <!-- ═════ SEQUENCE QUICK COMPARE ═════ -->
-<div class="card"><div class="card-header" onclick="toggleCard(this)"><span>🔄</span> abc vs acb — เครื่องหมาย ±30° ที่ผิดบ่อย <span style="margin-left:auto">▾</span></div>
+<div class="card" style="border:3px solid #d35400"><div class="card-header" onclick="toggleCard(this)" style="background:#fff3e0">
+<span>🎯</span> <strong>สูตรครบทิศทาง — abc vs acb (ใส่บวก/ลบมุมยังไง?)</strong> <span style="margin-left:auto">▾</span></div>
 <div class="card-body">
+
+<div class="box box-def" style="background:#fff3e0;border-left-color:#d35400">
+<div class="box-label">📌 4 สูตรสำคัญที่ต้องจำให้ได้</div>
+<p>ทุกสูตรการเปลี่ยน Y↔Δ จะเกี่ยวข้องกับมุม <strong>±30°</strong> เสมอ เครื่องหมาย <strong>ขึ้นกับ sequence</strong>:</p>
+<ul style="margin:0">
+  <li><strong>abc (positive)</strong> — ลำดับธรรมชาติ a→b→c</li>
+  <li><strong>acb (negative)</strong> — ลำดับสลับ a→c→b (= cab sequence)</li>
+</ul>
+</div>
+
+<!-- ═══ FORMULA 1: Line current vs Phase current (Δ load) ═══ -->
+<h3 style="color:#d35400;margin-top:18px">① ความสัมพันธ์ระหว่าง Line Current (I<sub>a</sub>) และ Phase Current (I<sub>AB</sub>) — Δ load</h3>
+
+<div class="grid2">
+<div class="box" style="background:#e8f9ef;border-left:4px solid #1a8a4a">
+<div class="box-label" style="color:#0d6e36">✅ abc Sequence (Positive)</div>
+<div class="formula" style="margin:6px 0"><span class="hi">I<sub>a</sub> = √3·I<sub>AB</sub> ∠<strong>−30°</strong></span>
+
+ดังนั้นถ้าต้องการหา I<sub>AB</sub> จาก I<sub>a</sub>:
+
+<span class="hi">I<sub>AB</sub> = (I<sub>a</sub>/√3) ∠<strong>+30°</strong></span></div>
+<p style="font-size:13px;color:#666;margin:0">📌 abc: line <em>ล้าหลัง</em> phase 30° → กลับด้านต้อง <strong>+30°</strong></p>
+</div>
+
+<div class="box" style="background:#fdecea;border-left:4px solid #c0392b">
+<div class="box-label" style="color:#7d2017">❌ acb Sequence (Negative)</div>
+<div class="formula" style="margin:6px 0"><span class="hi">I<sub>a</sub> = √3·I<sub>AB</sub> ∠<strong>+30°</strong></span>
+
+ดังนั้นถ้าต้องการหา I<sub>AB</sub> จาก I<sub>a</sub>:
+
+<span class="hi">I<sub>AB</sub> = (I<sub>a</sub>/√3) ∠<strong>−30°</strong></span></div>
+<p style="font-size:13px;color:#666;margin:0">📌 acb: line <em>นำหน้า</em> phase 30° → กลับด้านต้อง <strong>−30°</strong></p>
+</div>
+</div>
+
+<!-- ═══ FORMULA 2: Line voltage vs Phase voltage (Y) ═══ -->
+<h3 style="color:#d35400;margin-top:18px">② ความสัมพันธ์ระหว่าง V<sub>ab</sub> (Line) และ V<sub>an</sub> (Phase) — Y source/load</h3>
+
+<div class="grid2">
+<div class="box" style="background:#e8f9ef;border-left:4px solid #1a8a4a">
+<div class="box-label" style="color:#0d6e36">✅ abc Sequence (Positive)</div>
+<div class="formula" style="margin:6px 0"><span class="hi">V<sub>ab</sub> = √3·V<sub>an</sub> ∠<strong>+30°</strong></span>
+
+ดังนั้นถ้าต้องการหา V<sub>an</sub> จาก V<sub>ab</sub>:
+
+<span class="hi">V<sub>an</sub> = (V<sub>ab</sub>/√3) ∠<strong>−30°</strong></span></div>
+<p style="font-size:13px;color:#666;margin:0">📌 abc: line <em>นำหน้า</em> phase 30° → กลับด้านต้อง <strong>−30°</strong></p>
+</div>
+
+<div class="box" style="background:#fdecea;border-left:4px solid #c0392b">
+<div class="box-label" style="color:#7d2017">❌ acb Sequence (Negative)</div>
+<div class="formula" style="margin:6px 0"><span class="hi">V<sub>ab</sub> = √3·V<sub>an</sub> ∠<strong>−30°</strong></span>
+
+ดังนั้นถ้าต้องการหา V<sub>an</sub> จาก V<sub>ab</sub>:
+
+<span class="hi">V<sub>an</sub> = (V<sub>ab</sub>/√3) ∠<strong>+30°</strong></span></div>
+<p style="font-size:13px;color:#666;margin:0">📌 acb: line <em>ล้าหลัง</em> phase 30° → กลับด้านต้อง <strong>+30°</strong></p>
+</div>
+</div>
+
+<!-- ═══ FORMULA 3: V_bc, V_ca, V_bn, V_cn ═══ -->
+<h3 style="color:#d35400;margin-top:18px">③ V<sub>bc</sub>, V<sub>ca</sub>, V<sub>bn</sub>, V<sub>cn</sub> — เลื่อนเฟส 120°</h3>
+
+<div class="grid2">
+<div class="box" style="background:#e8f9ef;border-left:4px solid #1a8a4a">
+<div class="box-label" style="color:#0d6e36">✅ abc Sequence</div>
+<div class="formula" style="margin:6px 0">Phase voltage:
+  V<sub>bn</sub> = V<sub>an</sub> ∠<strong>−120°</strong>
+  V<sub>cn</sub> = V<sub>an</sub> ∠<strong>+120°</strong>
+
+Line voltage:
+  V<sub>bc</sub> = V<sub>ab</sub> ∠<strong>−120°</strong>
+  V<sub>ca</sub> = V<sub>ab</sub> ∠<strong>+120°</strong>
+
+Line current:
+  I<sub>b</sub> = I<sub>a</sub> ∠<strong>−120°</strong>
+  I<sub>c</sub> = I<sub>a</sub> ∠<strong>+120°</strong></div>
+</div>
+
+<div class="box" style="background:#fdecea;border-left:4px solid #c0392b">
+<div class="box-label" style="color:#7d2017">❌ acb Sequence</div>
+<div class="formula" style="margin:6px 0">Phase voltage:
+  V<sub>bn</sub> = V<sub>an</sub> ∠<strong>+120°</strong>
+  V<sub>cn</sub> = V<sub>an</sub> ∠<strong>−120°</strong>
+
+Line voltage:
+  V<sub>bc</sub> = V<sub>ab</sub> ∠<strong>+120°</strong>
+  V<sub>ca</sub> = V<sub>ab</sub> ∠<strong>−120°</strong>
+
+Line current:
+  I<sub>b</sub> = I<sub>a</sub> ∠<strong>+120°</strong>
+  I<sub>c</sub> = I<sub>a</sub> ∠<strong>−120°</strong></div>
+</div>
+</div>
+
+<!-- ═══ MASTER TABLE ═══ -->
+<h3 style="color:#d35400;margin-top:18px">📋 ตารางสรุปทุกสูตร — เครื่องหมาย ±30° / ±120°</h3>
 <div class="tbl-wrap"><table>
-<tr><th>เรื่อง</th><th>abc (positive)</th><th>acb / cab (negative)</th></tr>
-<tr><td>V<sub>bn</sub> เทียบ V<sub>an</sub></td><td>∠−120°</td><td>∠+120°</td></tr>
-<tr><td>V<sub>cn</sub> เทียบ V<sub>an</sub></td><td>∠+120°</td><td>∠−120°</td></tr>
-<tr><td>V<sub>bc</sub> เทียบ V<sub>ab</sub></td><td>∠−120°</td><td>∠+120°</td></tr>
-<tr><td>V<sub>ab</sub> เทียบ V<sub>an</sub></td><td>√3∠<strong>+30°</strong></td><td>√3∠<strong>−30°</strong></td></tr>
-<tr><td>V<sub>an,eq</sub> ของ Δ source (V<sub>ab</sub> ให้)</td><td>(V<sub>ab</sub>/√3)∠<strong>−30°</strong></td><td>(V<sub>ab</sub>/√3)∠<strong>+30°</strong></td></tr>
-<tr><td>I<sub>line</sub> เทียบ I<sub>phase(Δ)</sub></td><td>I<sub>a</sub>=√3·I<sub>AB</sub>∠<strong>−30°</strong></td><td>I<sub>a</sub>=√3·I<sub>AB</sub>∠<strong>+30°</strong></td></tr>
+<tr><th>ความสัมพันธ์</th><th>abc (positive)</th><th>acb (negative)</th></tr>
+
+<tr style="background:#fff3e0"><td colspan="3"><strong>🔵 Y connection — V<sub>line</sub> ↔ V<sub>phase</sub></strong></td></tr>
+<tr><td>V<sub>ab</sub> = ?·V<sub>an</sub></td><td>√3·V<sub>an</sub>∠<strong>+30°</strong></td><td>√3·V<sub>an</sub>∠<strong>−30°</strong></td></tr>
+<tr><td>V<sub>an</sub> = ?·V<sub>ab</sub></td><td>(V<sub>ab</sub>/√3)∠<strong>−30°</strong></td><td>(V<sub>ab</sub>/√3)∠<strong>+30°</strong></td></tr>
+<tr><td>V<sub>bn</sub></td><td>V<sub>an</sub>∠<strong>−120°</strong></td><td>V<sub>an</sub>∠<strong>+120°</strong></td></tr>
+<tr><td>V<sub>cn</sub></td><td>V<sub>an</sub>∠<strong>+120°</strong></td><td>V<sub>an</sub>∠<strong>−120°</strong></td></tr>
+<tr><td>V<sub>bc</sub></td><td>V<sub>ab</sub>∠<strong>−120°</strong></td><td>V<sub>ab</sub>∠<strong>+120°</strong></td></tr>
+<tr><td>V<sub>ca</sub></td><td>V<sub>ab</sub>∠<strong>+120°</strong></td><td>V<sub>ab</sub>∠<strong>−120°</strong></td></tr>
+
+<tr style="background:#fff3e0"><td colspan="3"><strong>🔺 Δ connection — I<sub>line</sub> ↔ I<sub>phase</sub></strong></td></tr>
+<tr><td>I<sub>a</sub> = ?·I<sub>AB</sub></td><td>√3·I<sub>AB</sub>∠<strong>−30°</strong></td><td>√3·I<sub>AB</sub>∠<strong>+30°</strong></td></tr>
+<tr><td>I<sub>AB</sub> = ?·I<sub>a</sub></td><td>(I<sub>a</sub>/√3)∠<strong>+30°</strong></td><td>(I<sub>a</sub>/√3)∠<strong>−30°</strong></td></tr>
+<tr><td>I<sub>BC</sub></td><td>I<sub>AB</sub>∠<strong>−120°</strong></td><td>I<sub>AB</sub>∠<strong>+120°</strong></td></tr>
+<tr><td>I<sub>CA</sub></td><td>I<sub>AB</sub>∠<strong>+120°</strong></td><td>I<sub>AB</sub>∠<strong>−120°</strong></td></tr>
+<tr><td>I<sub>b</sub> (line)</td><td>I<sub>a</sub>∠<strong>−120°</strong></td><td>I<sub>a</sub>∠<strong>+120°</strong></td></tr>
+<tr><td>I<sub>c</sub> (line)</td><td>I<sub>a</sub>∠<strong>+120°</strong></td><td>I<sub>a</sub>∠<strong>−120°</strong></td></tr>
 </table></div>
-<div class="box box-warn" style="margin-top:10px"><strong>กฎจำสั้นๆ:</strong> abc → "phase นำ line" สำหรับ source แปลง (ดังนั้นเมื่อแปลง Δ→Y ต้องลบ 30°), acb → กลับเครื่องหมาย</div>
+
+<!-- ═══ MEMORY TRICK ═══ -->
+<h3 style="color:#d35400;margin-top:18px">🧠 เทคนิคจำง่าย</h3>
+<div class="grid2">
+<div class="box box-tip"><div class="box-label">💡 จำกฎ "หมุนตาม sequence"</div>
+<ul style="margin:0">
+<li><strong>abc</strong>: a → b → c → a (มุมลด: 0° → −120° → +120°)</li>
+<li><strong>acb</strong>: a → c → b → a (มุมเพิ่ม: 0° → +120° → −120°... รอ ไม่ใช่!) — กลับเป็น a → c → b</li>
+</ul>
+<p style="margin:6px 0 0;font-size:13px"><strong>ทริค:</strong> ดูที่ตัวอักษรที่ 2 — ถ้า "b" มันคือ −120° (abc), ถ้า "c" คือ +120° (acb)... ผิด! ลองอีก:</p>
+<p style="margin:0;font-size:13px"><strong>ทริคที่ใช้ได้จริง:</strong> b เคลื่อนตาม a เสมอ — ใน abc: b = a − 120° / ใน acb: b = a + 120°</p>
+</div>
+
+<div class="box box-warn"><div class="box-label">⚠️ Pattern เครื่องหมาย ±30°</div>
+<p>กฎพื้นฐาน: <strong>"ใน abc, line นำหน้า phase 30°"</strong> สำหรับ V (และล้าหลัง 30° สำหรับ I ใน Δ)</p>
+<table style="font-size:13px">
+<tr><th>คำถาม</th><th>abc</th><th>acb</th></tr>
+<tr><td>V<sub>line</sub> เทียบ V<sub>phase</sub></td><td>+30°</td><td>−30°</td></tr>
+<tr><td>I<sub>line</sub> เทียบ I<sub>phase(Δ)</sub></td><td>−30°</td><td>+30°</td></tr>
+</table>
+<p style="margin:6px 0 0;font-size:13px"><strong>📌 V กับ I มุมตรงข้ามกัน!</strong> abc: V บวก, I ลบ — acb: V ลบ, I บวก</p>
+</div>
+</div>
+
+<div class="box box-exam" style="margin-top:12px">
+<div class="box-label">🎯 ตัวอย่างใช้สูตร</div>
+<p><strong>โจทย์:</strong> abc-sequence, V<sub>ab</sub> = 380∠60° V → หา V<sub>an</sub> และ V<sub>bn</sub></p>
+<div class="formula">abc → ใช้ V<sub>an</sub> = (V<sub>ab</sub>/√3)∠<strong>−30°</strong>
+V<sub>an</sub> = (380/√3)∠(60°−30°) = <strong>219.4∠30° V</strong>
+
+V<sub>bn</sub> = V<sub>an</sub>∠<strong>−120°</strong> (abc)
+     = 219.4∠(30°−120°) = <strong>219.4∠−90° V</strong></div>
+
+<p style="margin-top:8px"><strong>โจทย์ 2:</strong> abc-sequence, I<sub>a</sub> = 25∠40° A → หา I<sub>AB</sub> ใน Δ load</p>
+<div class="formula">abc → ใช้ I<sub>AB</sub> = (I<sub>a</sub>/√3)∠<strong>+30°</strong>
+I<sub>AB</sub> = (25/√3)∠(40°+30°) = <strong>14.43∠70° A</strong></div>
+
+<p style="margin-top:8px"><strong>โจทย์ 3 (acb):</strong> acb-sequence, V<sub>ab</sub> = 444∠60° V → หา V<sub>an</sub></p>
+<div class="formula">acb → ใช้ V<sub>an</sub> = (V<sub>ab</sub>/√3)∠<strong>+30°</strong>
+V<sub>an</sub> = (444/√3)∠(60°+30°) = <strong>256.4∠90° V</strong>
+(ตรงกับตัวอย่างของอาจารย์! ✓)</div>
+</div>
+
 </div></div>
 
 <!-- ═══════════════════════════════════════════════════════════
